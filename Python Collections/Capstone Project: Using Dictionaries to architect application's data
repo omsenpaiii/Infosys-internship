@@ -1,0 +1,463 @@
+Ques:1
+Start by initializing an empty dictionary movies. Your task is to write a function named define_movies(). This function should take a dictionary along with data values as arguments. 
+The function's purpose is to insert the given data values into the dictionary and eventually return the updated dictionary.
+The Python code stub below shows you how to initialize and define your function:
+def define_movies(dictionary, id, name, year, rank):
+    # Your code goes here
+    return dictionary
+The structure of the movies dictionary is as follows:
+movies = {
+    id(type 'int'): {
+        'name': name, # string
+        'year': year, # integer
+        'rank': rank # float
+    }
+}
+Upon successfully defining your function, use the following data to test it by inserting them into the movies dictionary.
+id = '0'
+name = 'Carmencita'
+year = 1894
+rank = 5.6
+Make sure to add only the above data otherwise the test cases will fail
+Ans:
+  def define_movies(dictionary, id, name, year, rank):
+      dictionary[id] = {
+          'name': name,
+          'year': year,
+          'rank': rank
+      }
+      return dictionary
+  We have created a function define_movies() that takes a dictionary and data values and inserts the data values into the dictionary. Now, we will use this function to insert the data into the movies dictionary.
+  movies = define_movies(movies, 0, 'Carmencita', 1894, 5.6)
+
+
+Ques:2
+In the previous activity, we created a function define_movies() that takes a dictionary and data values and inserts the data values into the dictionary. 
+Now, we will use this function to insert the data into the movies dictionary.
+We have movies_list which contains the data of the movies. We will iterate over the movies_list and insert the data into the movies dictionary.
+The structure of the movies_list is as follows:
+movies_list = [
+    {
+        'id': 1,
+        'name': 'Carmencita',
+        'year': 1894,
+        'rank': 5.6
+    },
+    ...
+]
+Ans:
+  for movie in movies_list:
+      movies = define_movies(movies, movie['id'], movie['name'], movie['year'], movie['rank'])
+  In the above code, we have iterated over the movies_list and inserted the data into the movies dictionary using the define_movies() function.
+
+
+Ques:3
+We have an empty dictionary for directors. You have to create a function define_directors(). The function takes a dictionary and data values and the function should insert the data values from the directors_list 
+into the directors dictionary and return the dictionary.
+The definition of the define_directors() function is as follows:
+def define_directors(dictionary, directors_list):
+    # Your code goes here
+    return dictionary
+The structure of the directors dictionary is as follows:
+directors = {
+    id: {
+        'first_name': firstName, # string
+        'last_name': lastName # string
+    }
+}
+The structure of the directors_list is as follows:
+directors_list = [
+    {
+        'id': 1,
+        'first_name': 'Fred',
+        'last_name': 'Abberline'
+    },
+    ...
+]
+Ans:
+  def define_directors(dictionary, directors_list):
+      for director in directors_list:
+          dictionary[director['id']] = {
+              'first_name': director['first_name'],
+              'last_name': director['last_name']
+          }
+      return dictionary
+  We have created a function define_directors() that takes a dictionary and data values and inserts the data values from the directors_list into the directors dictionary. 
+  Now, we will use this function to insert the data into the directors dictionary.
+  directors = define_directors(directors, directors_list)
+
+
+Ques:4
+We have an empty dictionary for actors. You have to create a function define_actors(). The function takes a dictionary and data values and the function should insert the data values from the actors_list into 
+the actors dictionary and return the dictionary.
+The definition of the define_actors() function is as follows:
+def define_actors(dictionary, actors_list):
+    # Your code goes here
+    return dictionary
+The structure of the actors dictionary is as follows:
+actors = {
+    id: {
+        'first_name': firstName, # string
+        'last_name': lastName # string
+        'gender': M or F # single character string
+    }
+}
+The structure of the actors_list is as follows:
+actors_list = [
+    {
+        'id': 4,
+        'first_name': 'Dieguito',
+        'last_name': 'El Cigala',
+        'gender': 'M'
+    }
+    ...
+]
+Ans:
+  def define_actors(dictionary, actors_list):
+      for actor in actors_list:
+          dictionary[actor['id']] = {
+              'first_name': actor['first_name'],
+              'last_name': actor['last_name'],
+              'gender': actor['gender']
+          }
+      return dictionary
+  We have created a function define_actors() that takes a dictionary and data values and inserts the data values from the actors_list into the actors dictionary. 
+  Now, we will use this function to insert the data into the actors dictionary.
+  actors = define_actors(actors, actors_list)
+
+
+Ques:5
+Define a function define_roles() that takes a dictionary and data values and the function should add the data to the dictionary in the required format and return the dictionary. 
+The definition of the define_roles() function is as follows:
+def define_roles(dictionary, actor_id, role):
+    # Your code goes here
+    return dictionary
+The structure of the roles dictionary is as follows:
+roles = {
+    actor_id: {
+        'role': [role1, role2, ...] # list of strings
+    },
+    ...
+}
+In the function define_roles(), we will pass a single actor id and a single role at a time. So, we will add the role to the list of roles for the actor id.
+After defining the function, insert the below data into the roles dictionary using the function define_roles().
+define_roles(roles, 4, 'Actor')
+define_roles(roles, 4, 'Singer')
+define_roles(roles, 3, 'Actor')
+define_roles(roles, 3, 'Singer')
+define_roles(roles, 3, 'Director')
+define_roles(roles, 2, 'Actor')
+define_roles(roles, 2, 'Singer')
+define_roles(roles, 1, 'Actor')
+Ans:
+  def define_roles(dictionary, actor_id, role):
+      if actor_id in dictionary:
+          dictionary[actor_id]['role'].append(role)
+      else:
+          dictionary[actor_id] = {
+              'role': [role]
+          }
+      return dictionary
+  We have created a function define_roles() that takes a dictionary and data values and inserts the data values from the roles_list into the roles dictionary. 
+  Now, we will use this function to insert the data into the roles dictionary.
+  define_roles(roles, 4, 'Actor')
+  define_roles(roles, 4, 'Singer')
+  define_roles(roles, 3, 'Actor')
+  define_roles(roles, 3, 'Singer')
+  define_roles(roles, 3, 'Director')
+  define_roles(roles, 2, 'Actor')
+  define_roles(roles, 2, 'Singer')
+  define_roles(roles, 1, 'Actor')
+
+
+Ques:6
+Define a function define_movies_genres() that takes a dictionary and data values and the function should add the data to the dictionary in the required format and return the dictionary. 
+The definition of the define_movies_genres() function is as follows:
+def define_movies_genres(dictionary, movie_id, genre):
+    # Your code goes here
+    return dictionary
+The structure of the movies_genres dictionary is as follows:
+movies_genres = {
+    movie_id: {
+        'genre': [genre1, genre2, ...] # list of strings
+    },
+    ...
+}
+In the function define_movies_genres(), we will pass a single movie id and a single genre at a time. So, we will add the genre to the list of genres for the movie id.
+After defining the function, insert the below data into the movies_genres dictionary using the function define_movies_genres().
+define_movies_genres(movies_genres, 1, 'Short')
+define_movies_genres(movies_genres, 2, 'Short')
+define_movies_genres(movies_genres, 1, 'Comedy')
+define_movies_genres(movies_genres, 2, 'Comedy')
+define_movies_genres(movies_genres, 3, 'Crime')
+define_movies_genres(movies_genres, 4, 'Drama')
+define_movies_genres(movies_genres, 5, 'Romance')
+Ans:
+  def define_movies_genres(dictionary, movie_id, genre):
+      if movie_id in dictionary:
+          dictionary[movie_id]['genre'].append(genre)
+      else:
+          dictionary[movie_id] = {
+              'genre': [genre]
+          }
+      return dictionary
+  We have created a function define_movies_genres() that takes a dictionary and data values and inserts the data values from the movies_genres_list into the movies_genres dictionary.
+  Now, we will use this function to insert the data into the movies_genres dictionary.
+  define_movies_genres(movies_genres, 1, 'Short')
+  define_movies_genres(movies_genres, 2, 'Short')
+  define_movies_genres(movies_genres, 1, 'Comedy')
+  define_movies_genres(movies_genres, 2, 'Comedy')
+  define_movies_genres(movies_genres, 3, 'Crime')
+  define_movies_genres(movies_genres, 4, 'Drama')
+  define_movies_genres(movies_genres, 5, 'Romance')
+
+
+Ques:7
+In this activity, you will be defining a function define_directors_genres() that takes a dictionary and data values, and the function should add the data to the dictionary in the required format and return the 
+dictionary. The definition of the define_directors_genres() function is as follows:
+def define_directors_genres(dictionary, director_id, genre, probability):
+    # Your code goes here
+    return dictionary
+The structure of the directors_genres dictionary is as follows:
+directors_genres = {
+    director_id: {
+        genre1: probability1, # float
+        genre2: probability2, # float
+        ...
+    },
+    ...
+}
+In the function define_directors_genres(), we will pass a single director id, single genre, and single probability at a time. So, we will add the genre and probability to the dictionary for the director id.
+After defining the function, insert the below data into the directors_genres dictionary using the function define_directors_genres().
+define_directors_genres(directors_genres, 1, 'Short', 0.5)
+define_directors_genres(directors_genres, 2, 'Short', 0.5)
+define_directors_genres(directors_genres, 1, 'Comedy', 0.5)
+define_directors_genres(directors_genres, 2, 'Comedy', 0.5)
+define_directors_genres(directors_genres, 3, 'Crime', 1.0)
+define_directors_genres(directors_genres, 4, 'Drama', 1.0)
+define_directors_genres(directors_genres, 5, 'Romance', 1.0)
+Ans:
+  def define_directors_genres(dictionary, director_id, genre, probability):
+      if director_id in dictionary:
+          dictionary[director_id][genre] = probability
+      else:
+          dictionary[director_id] = {
+              genre: probability
+          }
+      return dictionary
+  We have created a function define_directors_genres() that takes a dictionary and data values and inserts the data values from the directors_genres_list into the directors_genres dictionary. 
+  Now, we will use this function to insert the data into the directors_genres dictionary.
+  define_directors_genres(directors_genres, 1, 'Short', 0.5)
+  define_directors_genres(directors_genres, 2, 'Short', 0.5)
+  define_directors_genres(directors_genres, 1, 'Comedy', 0.5)
+  define_directors_genres(directors_genres, 2, 'Comedy', 0.5)
+  define_directors_genres(directors_genres, 3, 'Crime', 1.0)
+  define_directors_genres(directors_genres, 4, 'Drama', 1.0)
+  define_directors_genres(directors_genres, 5, 'Romance', 1.0)
+
+
+Ques:8
+Your task is to write a Python function that combines information from seven different dictionaries representing a movie database into a single, normalized dictionary. This will help us organize movie data in a 
+more efficient and structured way.
+The function name should be combine_movie_data() which takes seven dictionaries as input and returns a single dictionary films as output. The seven dictionaries are movies, directors, actors, roles, 
+movies_genres, directors_genres, and movies_directors.
+The definition of the function is as follows:
+def combine_movie_data(movies, directors, actors, roles, movies_genres, directors_genres, movies_directors):
+    # Write your code here
+    return films
+The structure of the films dictionary is as follows:
+films = {
+    "1": {
+        'name': "Movie 1",
+        'year': 2023,
+        'rank': 8.5,
+        'directors': ["Director 1"],
+        'actors': [
+            {
+                'name': "Actor 1",
+                'gender': "M",
+                'roles': ["Role A", "Role B"]
+            },
+            {
+                'name': "Actress 2",
+                'gender': "F",
+                'roles': ["Role C"]
+            }
+        ],
+        'genres': ["Action", "Adventure"],
+        'directors_genres': {
+            'name': "Director 1",
+            'genres': {
+                "Action": 0.7,
+                "Adventure": 0.3
+            }
+        }
+    },
+    "2": {
+        'name': "Movie 2",
+        'year': 2021,
+        'rank': 7.8,
+        'directors': ["Director 2"],
+        'actors': [
+            {
+                'name': "Actor 3",
+                'gender': "M",
+                'roles': ["Role D"]
+            }
+        ],
+        'genres': ["Drama"],
+        'directors_genres': {
+            'name': "Director 2",
+            'genres': {
+                "Drama": 0.6,
+                "Romance": 0.4
+            }
+        }
+    },
+    # ... more movies
+}
+Ans:
+  def combine_movie_data(movies, directors, actors, roles, movies_genres, directors_genres, movies_directors):
+      films = {}  # Initialize the resulting dictionary
+      # Iterate through movies dictionary
+      for movie_id, movie_info in movies.items():
+          film = {}  # Create a new dictionary to store movie details
+          film['name'] = movie_info['name']
+          film['year'] = movie_info['year']
+          film['rank'] = movie_info['rank']
+          # Add directors
+          director_ids = movies_directors.get(str(movie_id), [])
+          directors_list = []
+          for director_id in director_ids:
+              director_info = directors.get(director_id)
+              if director_info:
+                  director_name = f"{director_info['first_name']} {director_info['last_name']}"
+                  directors_list.append(director_name)
+          film['directors'] = directors_list
+          # Add actors and their roles
+          actor_roles = roles.get(str(movie_id), {})
+          actors_list = []
+          for actor_id, actor_roles_info in actor_roles.items():
+              actor_info = actors.get(actor_id)
+              if actor_info:
+                  actor_name = f"{actor_info['first_name']} {actor_info['last_name']}"
+                  actor_gender = actor_info['gender']
+                  roles_list = actor_roles_info['role']
+                  actor_data = {
+                      'name': actor_name,
+                      'gender': actor_gender,
+                      'roles': roles_list
+                  }
+                  actors_list.append(actor_data)
+          film['actors'] = actors_list
+          # Add genres
+          genres_list = movies_genres.get(str(movie_id), [])
+          film['genres'] = genres_list
+          # Add director genres
+          if director_ids:
+              director_genre_probs = directors_genres.get(director_ids[0], {})
+              director_name = directors.get(director_ids[0], {}).get('first_name', '')
+              directors_genres_data = {
+                  'name': director_name,
+                  'genres': director_genre_probs
+              }
+              film['directors_genres'] = directors_genres_data
+          # Add the movie to the films dictionary
+          films[str(movie_id)] = film
+      return films
+
+
+Ques:9
+In this activity, we will find the oldest film in the films dictionary. We will use the films dictionary that we created in the previous section. The oldest film is the film with the earliest year.
+If there are multiple films with the same earliest year, then store film names in a list and return the list.
+You have to write a function named find_oldest_film() that takes one argument, films, and returns a list of film names.
+The definition of the find_oldest_film() function is given below:
+def find_oldest_film(films):
+    # Write your code here
+    pass
+Ans:
+  def find_oldest_film(films):
+      oldest_year = None
+      oldest_film_names = []
+      for film_id, film_info in films.items():
+          if oldest_year is None or film_info['year'] < oldest_year:
+              oldest_year = film_info['year']
+              oldest_film_names = [film_info['name']]
+          elif film_info['year'] == oldest_year:
+              oldest_film_names.append(film_info['name'])
+      return oldest_film_names
+  In the above solution, we first initialize the oldest_year variable to None. We then iterate through the films dictionary. For each film, we check if the oldest_year is None or if the film's year is less than
+  the oldest_year. If either of these conditions is true, then we update the oldest_year to the film's year and initialize the oldest_film_names list to the film's name.
+  If the film's year is equal to the oldest_year, then we append the film's name to the oldest_film_names list. Finally, we return the oldest_film_names list.
+  oldest_film_names = find_oldest_film(films)
+  print(oldest_film_names)
+
+
+Ques:10
+In this activity, we will count the number of documentaries in the films dictionary. We will use the films dictionary that we created in the previous section. A film is a documentary if its genre is Documentary.
+Input the value in below input box below as an integer.
+Ans:
+  documentary_count = 0
+  for film_id, film_info in films.items():
+      if 'Documentary' in film_info['genres']:
+          documentary_count += 1
+  print(documentary_count)
+
+
+Ques:11
+Calculate the average rank of films in the 'Drama' genre.
+Input the value in the below input box as a float(rounded to 2 decimal places).
+There are some films with unknown rank. You should not include these films in your calculation.
+Ans:
+  # Initialize the drama_films list to an empty list
+  drama_films = []
+  # Iterate through the films dictionary
+  for film_id, film_info in films.items():
+      if 'Drama' in film_info['genres']:
+          drama_films.append(film_info)
+  # Initialize the total_rank to 0
+  total_rank = 0
+  # Initialize the total_drama_films to 0
+  total_drama_films = 0
+  # Iterate through the drama_films list
+  for film_info in drama_films:
+      # If the rank is not unknown
+      if film_info['rank'] != 'unknown':
+          # Add the rank to the total_rank
+          total_rank += film_info['rank']
+          # Increment the total_drama_films by 1
+          total_drama_films += 1
+  # Calculate the average rank
+  average_rank = total_rank / total_drama_films
+  print(average_rank)
+
+
+Ques:12
+Create a list of all films that are categorized as Short.
+You have to write a function named list_short_films() that takes one argument, films, and returns a list of film names.
+The definition of the list_short_films() function is given below:
+def list_short_films(films):
+    # Write your code here
+    pass
+Ans:
+  def list_short_films(films):
+      short_films = []
+      for film_id, film_info in films.items():
+          if 'Short' in film_info['genres']:
+              short_films.append(film_info['name'])
+      return short_films
+  In the above solution, we first initialize the short_films list to an empty list. We then iterate through the films dictionary. For each film, we check if the film's genre is Short. If the film's genre is Short,
+  then we append the film's name to the short_films list. Finally, we return the short_films list.
+  short_films = list_short_films(films)
+  print(short_films)
+
+
+Ques:13
+Identify the film with the Comedy genre that has the highest rank. If there are multiple films with the same highest rank, then input the name of the film that comes first in the alphabetical order.
+Input the value in the below input box as a string.
+There are some films with unknown rank. You should not include these films in your calculation.
+Ans:
+  # Initialize the highest_rank to 0
+  highest_rank = 0
+  # Initialize the highest_rank_film to None
+  highest_rank_film 
